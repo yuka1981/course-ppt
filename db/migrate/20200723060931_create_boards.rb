@@ -4,7 +4,7 @@ class CreateBoards < ActiveRecord::Migration[6.0]
       t.string :title
       t.text :intro
       t.datetime :deleted_at
-      t.string :state
+      t.string :state, default: 'normal'
 
       t.timestamps
     end
