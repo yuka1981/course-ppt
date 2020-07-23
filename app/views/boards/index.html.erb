@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boards</title>
 </head>
+
 <body>
   <h1>看板列表</h1>
+
+  <a href="/boards/new">新增看板1</a>
+  
+  <%# name_path 推薦%>
+  <%= link_to "新增看板3", new_board_path, class: "abc", id: "xyz" %>
+  
+  <a href="<%= new_board_path %>">新增看板2</a>
+
+
+  <ul>
+    <% @boards.each do |board| %>
+    <li><%= board.title %></li>
+    <% end %>
+  </ul>
+
+
 </body>
+
 </html>
