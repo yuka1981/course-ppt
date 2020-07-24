@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # 首頁特化的寫法
   root "pages#index"
+  # root "boards#index"
   # get "/", to: "pages#index"
   
   get "/about", to: "pages#about"
