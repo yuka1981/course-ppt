@@ -5,7 +5,8 @@ class BoardsController < ApplicationController
   # app/views/layouts/application.html.erb
 
   def index
-    @boards = Board.all
+    # @boards = Board.all
+    @boards = Board.where(deleted_at: nil)
   end
 
   def show
@@ -61,8 +62,9 @@ class BoardsController < ApplicationController
 
   def destroy
     @board = Board.find(params[:id])
+    #@board.destroy
     
-    @board.destroy
+    @board.update(deleted_at: Time.now)
     redirect_to boards_path, notice: "刪除成功"
   end
 
