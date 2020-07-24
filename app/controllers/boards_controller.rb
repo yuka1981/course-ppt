@@ -62,9 +62,8 @@ class BoardsController < ApplicationController
 
   def destroy
     @board = Board.find(params[:id])
-    #@board.destroy
-    
-    @board.update(deleted_at: Time.now)
+    @board.destroy
+    # @board.update(deleted_at: Time.now)
     redirect_to boards_path, notice: "刪除成功"
   end
 
