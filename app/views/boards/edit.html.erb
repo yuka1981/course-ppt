@@ -1,21 +1,6 @@
 <h2>編輯看板</h2>
 
-<% if @board.errors.any?  %>
-  <ul>
-  <% @board.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-  </ul>
-<% end %>
+<%= render 'form' %>
 
-<%= form_for(@board) do |f| %>
-  <%= f.label :title, "看板名稱" %>
-  <%= f.text_field :title %>
-
-  <%= f.label :intro, "看板說明" %>
-  <%= f.text_area :intro %>
-
-  <%= f.submit "送出" %>
-<% end %>
 
 
