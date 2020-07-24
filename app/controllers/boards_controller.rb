@@ -1,11 +1,5 @@
 class BoardsController < ApplicationController
 
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
-
-  def not_found
-    render file: '/public/404.html', status: 404
-  end
-
   layout 'application'
   # app/views/layouts/boards.html.erb
   # app/views/layouts/application.html.erb
@@ -42,13 +36,27 @@ class BoardsController < ApplicationController
       redirect_to boards_path, notice: "新增成功"
     else
       # NG
-
       # redirect_to new_board_path, notice: "發生錯誤"
       render :new
     end
 
     # reander(html: params)
     # render html: params
+  end
+
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  def update
+    @board = Board.find(params[:id])
+
+    if @board.update(board_params)
+      redirect_to boards_path, notice: "更新成功"
+    else
+      # ng
+      render :edit
+    end
   end
 
 
