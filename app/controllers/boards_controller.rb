@@ -8,6 +8,21 @@ class BoardsController < ApplicationController
     @boards = Board.all
   end
 
+  def show
+    # return array, 多筆資料
+    # Board.where(id: params[:id]) 
+    
+    # return "single" value, 只會找到第一筆
+    # Board.find_by(id: params[:id]) # 可以接其它欄位或 hash, 找不到 retrun nil
+    begin
+      @board = Board.find(params[:id]) # 只能接 pk, 找不到 return ActiveRecord::RecordNOtFound
+    rescue 
+      render file: '/public/404.html', status: 404
+    end
+
+    # select * from boards where id = ?
+  end
+
   def new
     @board = Board.new
   end
@@ -32,11 +47,6 @@ class BoardsController < ApplicationController
 
     # reander(html: params)
     # render html: params
-  end
-
-  def show
-
-    
   end
 
 
