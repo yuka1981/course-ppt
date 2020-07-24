@@ -1,5 +1,11 @@
 class BoardsController < ApplicationController
 
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
+  def not_found
+    render file: '/public/404.html', status: 404
+  end
+
   layout 'application'
   # app/views/layouts/boards.html.erb
   # app/views/layouts/application.html.erb
@@ -14,11 +20,7 @@ class BoardsController < ApplicationController
     
     # return "single" value, 只會找到第一筆
     # Board.find_by(id: params[:id]) # 可以接其它欄位或 hash, 找不到 retrun nil
-    begin
-      @board = Board.find(params[:id]) # 只能接 pk, 找不到 return ActiveRecord::RecordNOtFound
-    rescue 
-      render file: '/public/404.html', status: 404
-    end
+    @board = Board.find(params[:id]) # 只能接 pk, 找不到 return ActiveRecord::RecordNOtFound
 
     # select * from boards where id = ?
   end
