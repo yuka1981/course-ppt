@@ -25,11 +25,20 @@ class BoardsController < ApplicationController
       redirect_to boards_path, notice: "新增成功"
     else
       # NG
+
+      # redirect_to new_board_path, notice: "發生錯誤"
+      render :new
     end
 
     # reander(html: params)
     # render html: params
   end
+
+  def show
+
+    
+  end
+
 
   private
   # Strong Parameters
