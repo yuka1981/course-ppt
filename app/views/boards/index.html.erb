@@ -1,13 +1,37 @@
-  <h1>看板列表</h1>
+    <div class="row">
+      <div class="title col-10 text-center my-3 mx-auto">
+        <h1>看板列表</h1>
+      </div>
+    </div>
   
-  <%= link_to "新增看板", new_board_path %>
+  <div class="row">
+    <%= link_to "新增看板", new_board_path, class: "btn btn-info btn-sm mt-3" %>
+  </div>
 
-  <ul>
-    <% @boards.each do |board| %>
-      <li>
-        <%= link_to board.title, board_path(board) %>
-        <%= link_to "編輯", edit_board_path(board) %>
-        <%= link_to "刪除", board_path(board), method: 'delete', data: { confirm: '確認刪除?'} %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="row">
+    <table class="table my-3 text-decoration-none">
+      <thead class="thead-dark">
+        <tr>
+          <th>看板名稱</th>
+          <th>看板狀態</th>
+          <th>功能</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @boards.each do |board| %>
+        <tr>
+          <td>
+            <%= link_to board.title, board_path(board) %>
+          </td>
+          <td>
+            <%= board.state %>
+          </td>
+          <td>
+            <%= link_to "編輯", edit_board_path(board) %>
+            <%= link_to "刪除", board_path(board), method: 'delete', data: { confirm: '確認刪除?'} %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

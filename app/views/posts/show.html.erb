@@ -1,6 +1,8 @@
 <h2><%= @post.title %></h2>
 
-<%= @post.content %>
-<%= @post.created_at %>
 
-<%= link_to "back", board_path(@post.board_id) %>
+  <div class="col-12">
+    <%= @post.content %>
+  </div>
+
+<%= link_to "返回", board_path(@post.board_id), class: "btn btn-sm btn-info" %>
