@@ -7,9 +7,9 @@ class BoardsController < ApplicationController
   # app/views/layouts/application.html.erb
 
   def index
-    # @boards = Board.all
+    @boards = Board.all
     # @boards = Board.where(deleted_at: nil)
-    @boards = Board.available
+    # @boards = Board.available
   end
 
   def show
