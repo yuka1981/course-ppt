@@ -2,14 +2,14 @@ class BoardsController < ApplicationController
 
   before_action :find_board, only: [:show, :edit, :update, :destroy]
                             # except
-
   layout 'application'
   # app/views/layouts/boards.html.erb
   # app/views/layouts/application.html.erb
 
   def index
     # @boards = Board.all
-    @boards = Board.where(deleted_at: nil)
+    # @boards = Board.where(deleted_at: nil)
+    @boards = Board.available
   end
 
   def show
