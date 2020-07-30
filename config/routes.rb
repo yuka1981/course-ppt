@@ -8,5 +8,13 @@ Rails.application.routes.draw do
   
   get "/about", to: "pages#about"
 
-  resources :boards
+  # resources :boards do
+  #   resource :posts, only: [:index, :new, :create]
+  # end
+
+  # resource :posts, except: [:index, :new, :create]
+
+  resources :boards do
+    resources :posts, shallow: true
+  end
 end

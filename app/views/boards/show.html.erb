@@ -1,2 +1,13 @@
 <h2>看板： <%= @board.title %> </h2>
 
+<%= link_to "新增文章", new_board_post_path(@board) %>
+
+<% @board.posts.each do |post| %>
+<ul>
+  <li>
+    <%= link_to post.title, post_path(post) %>
+    <%= link_to 'edit', edit_post_path(post) %>
+    <%= link_to 'delete', post_path(post), method: 'delete', data: {confirm: 'are you sure?'} %>
+  </li>
+</ul>
+<% end %>

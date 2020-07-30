@@ -1,0 +1,16 @@
+<h2><%= @post.title %></h2>
+
+<%= form_for(@post) do |post| %>
+  <div class="field">
+    <%= post.label :title, "title" %>
+    <%= post.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= post.label :content, "content" %>
+    <%= post.text_area :content %>
+  </div>
+  
+  <%= post.submit %>
+  
+<% end %>

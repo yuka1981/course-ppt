@@ -1,0 +1,6 @@
+<h2><%= @post.title %></h2>
+
+<%= @post.content %>
+<%= @post.created_at %>
+
+<%= link_to "back", board_path(@post.board_id) %>
