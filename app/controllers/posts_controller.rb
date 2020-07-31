@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @board, notice: '文章新增成功'
     else
-      
+      render :new
     end
   end
 
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to board_path(@post.board_id) , notice: 'updated!!'
     else
-      
+      # 
     end
   end
 

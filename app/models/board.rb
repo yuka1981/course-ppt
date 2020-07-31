@@ -2,6 +2,8 @@ class Board < ApplicationRecord
 
     acts_as_paranoid
 
+    # 有設定 act_as_paranoid 的狀態下，下面這行沒有作用
+    # has_many :posts, dependent: :destroy
     has_many :posts
 
     # validates :title, presence: true
