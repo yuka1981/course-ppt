@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       # 登入
-      session[:user_token] = @user.id
+      sign_in_user(@user)
     
       # 去首頁
       redirect_to root_path, notice: "會員註冊成功"
@@ -25,8 +25,22 @@ class UsersController < ApplicationController
 
   end
 
+  def sign_out
+    # 把票拿掉就是登出狀態了
+    sign_out_user
+    redirect_to root_path, notice: "登出成功"
+  end
+
 
   private
+  def sign_in_user(u)
+    session[:user_token] = u.id
+  end
+
+  def sign_out_user
+    session[:user_token] = nil
+  end
+
   def user_params
     params.require(:user).permit(:account, :password, :email)
   end

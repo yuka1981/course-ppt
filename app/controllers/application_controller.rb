@@ -23,11 +23,11 @@ class ApplicationController < ActionController::Base
 
   # for controller to helper
   # 下面這手法很常用
-  def user_signed_in?
-    current_user != nil
-  end
-
   def current_user
     @current_user ||= User.find_by(id: session[:user_token])
+  end
+
+  def user_signed_in?
+    current_user != nil
   end
 end
