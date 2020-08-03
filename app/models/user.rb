@@ -11,8 +11,9 @@ class User < ApplicationRecord
         # password: bigbang(options[:password]))
         password: Digest::SHA1.hexdigest("x" + options[:password] + "y"))
 
-    else
-      return false
+      # 這邊不加 else 也會回傳 nil
+    # else
+    #   return false
     end
   end
   
