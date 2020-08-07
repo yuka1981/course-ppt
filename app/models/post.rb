@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :board
+  belongs_to :user
 
   validates :title, presence: true
   validates :serial, uniqueness: true
@@ -17,6 +18,11 @@ class Post < ApplicationRecord
   # after_commit
 
   before_create :create_serial
+
+  # 這邊是要放在 helper 或是放在 model？
+  def display_username
+    user.nil? ? "未知" : user.account
+  end
 
   private
   # self.serial 指的是 post model 中的 serial 欄位

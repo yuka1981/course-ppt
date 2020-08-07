@@ -4,6 +4,11 @@ class User < ApplicationRecord
 
   before_create :encrypt_password
 
+  has_many :board_masters
+  has_many :boards, through: :board_masters
+
+  has_many :posts
+
   def self.login(options)
     if options[:account] && options[:password]
       find_by(account: options[:account],
@@ -16,6 +21,8 @@ class User < ApplicationRecord
     #   return false
     end
   end
+
+  
   
   private
   def encrypt_password

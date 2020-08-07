@@ -1,0 +1,26 @@
+    <div class="row">
+      <div class="title col-10 text-center my-3 mx-auto">
+        <h1>看板列表</h1>
+      </div>
+    </div>
+  
+  <div class="row">
+    <%# <%= link_to "新增看板", new_board_path, class: "btn btn-info btn-sm mt-3" %> 
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="div">
+      <ul class="list-unstyled">
+        <li>(A)nnounce     【 精華公佈欄 】</li>
+        <li>(F)avorite     【 我的最愛 】</li>
+        <li>(C)lass        【 分組討論區 】</li>
+        <li>(M)ail         【 私人信件區 】</li>
+        <li>(T)alk         【 休閒聊天區 】</li>
+        <li>(U)ser         【 個人設定區 】</li>
+        <li>(X)yz          【 系統資訊區 】</li>
+        <li>(P)lay         【 娛樂與休閒 】</li>
+        <li>(N)amelist     【 編特別名單 】</li>
+        <li>(G)oodbye         離開，再見… </li>
+      </ul>
+    </div>
+  </div>

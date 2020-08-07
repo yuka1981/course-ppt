@@ -6,6 +6,12 @@
 </div>
 
 <div class="row">
+  <div>
+  [版主：<%= display_bm(@board) %>]
+  </div>
+</div>
+
+<div class="row">
   <%= link_to "新增文章", new_board_post_path(@board), class: "btn btn-info btn-sm mt-3" %>
 </div>
 
@@ -14,6 +20,7 @@
     <thead class="thead">
       <tr>
         <th>文章</th>
+        <th>作者</th>
         <th>功能</th>
       </tr>
     </thead>
@@ -23,6 +30,9 @@
       <tr>
         <td>
           <%= link_to post.title, post_path(post) %>
+        </td>
+        <td>
+          <%= post.display_username %>
         </td>
         <td>
           <%= link_to '編輯', edit_post_path(post), class: "btn btn-primary btn-sm" %>

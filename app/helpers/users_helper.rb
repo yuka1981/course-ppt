@@ -13,5 +13,4 @@ module UsersHelper
   # def current_user
   #   User.find(session[:user_token]).account if user_signed_in?
   # end
-
 end

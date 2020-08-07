@@ -26,17 +26,12 @@ class UsersController < ApplicationController
   end
 
   def login
-    if user_params[:account] && user_params[:password]
-      # 有帳號密碼 => 登入
-      user = User.login(user_params) # login 是在 model 定義好的類別方法
+    # 有帳號密碼 => 登入
+    user = User.login(user_params) # login 是在 model 定義好的類別方法
 
-      if user
-        sign_in_user(user)
-        redirect_to root_path, notice: "成功登入"
-      else
-        redirect_to sign_in_users_path, notice: "請輸入正確帳號密碼"
-      end
-
+    if user
+      sign_in_user(user)
+      redirect_to root_path, notice: "成功登入"
     else
       redirect_to sign_in_users_path, notice: "請輸入正確帳號密碼"
     end

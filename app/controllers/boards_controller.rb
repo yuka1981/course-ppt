@@ -2,6 +2,9 @@ class BoardsController < ApplicationController
 
   before_action :find_board, only: [:show, :edit, :update, :destroy]
                             # except
+  before_action :authenticate_user!, except: [:index, :show]
+
+
   layout 'application'
   # app/views/layouts/boards.html.erb
   # app/views/layouts/application.html.erb
@@ -84,4 +87,5 @@ class BoardsController < ApplicationController
   def board_params
     params.require(:board).permit(:title, :intro)
   end
+
 end
